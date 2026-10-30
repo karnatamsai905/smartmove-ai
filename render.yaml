@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: smartmove-ai-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.11
+      - key: WAREHOUSE_LAT
+        value: "13.0827"
+      - key: WAREHOUSE_LNG
+        value: "80.2707"
+      - key: WAREHOUSE_NAME
+        value: "Chennai Central Warehouse"
+      - key: OSRM_BASE_URL
+        value: "https://router.project-osrm.org"
+      - key: NOMINATIM_BASE_URL
+        value: "https://nominatim.openstreetmap.org"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
